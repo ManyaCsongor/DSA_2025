@@ -53,5 +53,28 @@ void fillWithRandomNumbers(int n, float *pArray, float start, float end) {
     }
 }
 
+bool isPrime(int number) {
+    if (number < 2) return 0;
+    if (number == 2 || number == 3) return 1;
+    if (number % 2 == 0 || number % 3 == 0) return 0;
+    for (int i = 5; i * i <= number; i += 6) {
+        if (number % i == 0 || number % (i + 2) == 0) return 0;
+    }
+    return 1;
+}
+
+bool isPalindrome(int number) {
+    if(number<0)
+        return 0;
+    int temp = number, reverse=0;
+    while(temp) {
+        reverse= reverse*10+(temp%10);
+        temp/=10;
+    }
+    if(reverse==number)
+        return 1;
+    return 0;
+}
+
 
 
